@@ -1,0 +1,2 @@
+# kNN_HandwrittenNumberRecognition
+基于minist手写数据集，用k-NN算法实现手写数字的识别
