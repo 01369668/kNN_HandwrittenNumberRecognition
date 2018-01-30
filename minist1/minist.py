@@ -58,8 +58,8 @@ def img2vector(filename):
 def loadDataSet():
     ## step 1: Getting training set
     print ("---Getting training set...")
-    dataSetDir = 'E:/Github/'
-    trainingFileList = os.listdir(dataSetDir + 'kNN_HandwrittenNumberRecognition/trainingDigits')  # load the training set
+    dataSetDir = 'E:/Github/kNN_HandwrittenNumberRecognition/'
+    trainingFileList = os.listdir(dataSetDir + 'trainingDigits')  # load the training set
     numSamples = len(trainingFileList)
 
     train_x = zeros((numSamples, 1024))
@@ -68,7 +68,7 @@ def loadDataSet():
         filename = trainingFileList[i]
 
         # get train_x
-        train_x[i, :] = img2vector(dataSetDir + 'kNN_HandwrittenNumberRecognition/trainingDigits/%s' % filename)
+        train_x[i, :] = img2vector(dataSetDir + 'trainingDigits/%s' % filename)
 
         # get label from file name such as "1_18.txt"
         label = int(filename.split('_')[0])  # return 1
@@ -77,7 +77,7 @@ def loadDataSet():
         ## step 2: Getting testing set
     print ("---Getting testing set...")
     # testingFileList = os.listdir(dataSetDir + 'testDigits')  # load the testing set
-    testingFileList = os.listdir(dataSetDir + 'kNN_HandwrittenNumberRecognition/minist1/vectorImg')
+    testingFileList = os.listdir(dataSetDir + 'minist1/vectorImg')
     numSamples = len(testingFileList)
     test_x = zeros((numSamples, 1024))
     test_y = []
@@ -86,7 +86,7 @@ def loadDataSet():
 
         # get train_x
         # test_x[i, :] = img2vector(dataSetDir + 'testDigits/%s' % filename)
-        test_x[i, :] = img2vector(dataSetDir +'kNN_HandwrittenNumberRecognition\minist1\\'+ 'vectorImg/%s' % filename)
+        test_x[i, :] = img2vector(dataSetDir +'minist1/'+ 'vectorImg/%s' % filename)
 
         # get label from file name such as "1_18.txt"
         label = int(filename.split('_')[0])  # return 1

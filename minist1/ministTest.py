@@ -11,8 +11,8 @@ testPic = OP.GetTestPicture(testFiles)
 files = os.listdir(r"./img-number/")
 for i, item in enumerate(files):
     # print(item[:-4])
-    impath = "E:\Python\kNN_HandwrittenNumberRecognition\minist1\img-number\\" + item
-    savepath ='E:\Python\kNN_HandwrittenNumberRecognition\minist1\\vectorImg\\' + item[:-4] + ".txt"
+    impath = "./img-number/" + item
+    savepath ='./vectorImg/' + item[:-4] + ".txt"
     minist1.imgtovector.imgtovector(impath, savepath)
 
 
