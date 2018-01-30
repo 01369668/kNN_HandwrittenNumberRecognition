@@ -1,4 +1,4 @@
-from minist1 import minist
+from minist1 import mnist
 import minist1.imgtovector
 import minist1.OperateImg as OP
 import os
@@ -16,6 +16,6 @@ for i, item in enumerate(files):
     minist1.imgtovector.imgtovector(impath, savepath)
 
 
-minist.testHandWritingClass()
+mnist.testHandWritingClass()
 
 
