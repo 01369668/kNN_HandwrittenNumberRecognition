@@ -36,7 +36,6 @@ def kNNClassify(newInput, dataSet, labels, k):
         if value > maxCount:
             maxCount = value
             maxIndex = key
-
     return maxIndex
 
 
@@ -57,7 +56,7 @@ def img2vector(filename):
 # load dataSet
 def loadDataSet():
     ## step 1: Getting training set
-    print ("---Getting training set...")
+    print ("***Getting training set...***")
     dataSetDir = 'E:/Github/kNN_HandwrittenNumberRecognition/'
     trainingFileList = os.listdir(dataSetDir + 'trainingDigits')  # load the training set
     numSamples = len(trainingFileList)
@@ -75,7 +74,7 @@ def loadDataSet():
         train_y.append(label)
 
         ## step 2: Getting testing set
-    print ("---Getting testing set...")
+    print ("***Getting testing set...***")
     # testingFileList = os.listdir(dataSetDir + 'testDigits')  # load the testing set
     testingFileList = os.listdir(dataSetDir + 'testDigits')
     numSamples = len(testingFileList)
@@ -97,15 +96,15 @@ def loadDataSet():
 # test hand writing class
 def testHandWritingClass():
     ## step 1: load data
-    print ("step 1: load data...")
+    print ("step 1: load data")
     train_x, train_y, test_x, test_y = loadDataSet()
 
     ## step 2: training...
-    print ("step 2: training...")
+    print ("step 2: training")
     pass
 
     ## step 3: testing
-    print ("step 3: testing...")
+    print ("step 3: testing")
     numTestSamples = test_x.shape[0]
     matchCount = 0
     for i in range(numTestSamples):
@@ -116,5 +115,5 @@ def testHandWritingClass():
     accuracy = float(matchCount) / numTestSamples
 
     ## step 4: show the result
-    print ("step 4: show the result...")
+    print ("step 4: show the result")
     print ('The classify accuracy is: %.2f%%' % (accuracy * 100))
