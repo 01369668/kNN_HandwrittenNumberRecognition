@@ -28,7 +28,7 @@ def kNNClassify(newInput, dataSet, labels, k):
         # when the key voteLabel is not in dictionary classCount, get()
         # will return 0
         classCount[voteLabel] = classCount.get(voteLabel, 0) + 1
-    print(classCount)
+    print('投票结果：',classCount)
 
         ## step 5: the max voted class will return
     maxCount = 0
@@ -56,7 +56,7 @@ def img2vector(filename):
 # load dataSet
 def loadDataSet():
     ## step 1: Getting training set
-    print ("***Getting training set...***")
+    print ("***获取训练集数据...***")
     dataSetDir = 'E:/Github/kNN_HandwrittenNumberRecognition/'
     trainingFileList = os.listdir(dataSetDir + 'trainingDigits')  # load the training set
     numSamples = len(trainingFileList)
@@ -74,7 +74,7 @@ def loadDataSet():
         train_y.append(label)
 
         ## step 2: Getting testing set
-    print ("***Getting testing set...***")
+    print ("***获取测试集数据...***")
     # testingFileList = os.listdir(dataSetDir + 'testDigits')  # load the testing set
     testingFileList = os.listdir(dataSetDir + 'testDigits')
     numSamples = len(testingFileList)
@@ -96,24 +96,24 @@ def loadDataSet():
 # test hand writing class
 def testHandWritingClass():
     ## step 1: load data
-    print ("step 1: load data")
+    print ("step 1: 读取数据")
     train_x, train_y, test_x, test_y = loadDataSet()
 
     ## step 2: training...
-    print ("step 2: training")
+    print ("step 2: 训练")
     pass
 
     ## step 3: testing
-    print ("step 3: testing")
+    print ("step 3: 测试开始")
     numTestSamples = test_x.shape[0]
     matchCount = 0
     for i in range(numTestSamples):
         predict = kNNClassify(test_x[i], train_x, train_y, 3)
-        print ('The real answer is:%d,the classifier came back with:%d' % (test_y[i], predict))
+        print ('真实分类标签为:%d,k-NN分类器预测分类结果:%d' % (test_y[i], predict))
         if predict == test_y[i]:
             matchCount += 1
     accuracy = float(matchCount) / numTestSamples
 
     ## step 4: show the result
-    print ("step 4: show the result")
-    print ('The classify accuracy is: %.2f%%' % (accuracy * 100))
+    print ("step 4: 结果展示")
+    print ('分类正确率: %.2f%%' % (accuracy * 100))
